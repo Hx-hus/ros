@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/hx-hus/ros/话题通信基本操作/src/test/src/sub.cpp
+/home/hx-hus/ros/ros/话题通信基本操作/src/test/src/sub.cpp
 ros/ros.h
-/home/hx-hus/ros/话题通信基本操作/src/test/src/ros/ros.h
+/home/hx-hus/ros/ros/话题通信基本操作/src/test/src/ros/ros.h
 std_msgs/String.h
-/home/hx-hus/ros/话题通信基本操作/src/test/src/std_msgs/String.h
+/home/hx-hus/ros/ros/话题通信基本操作/src/test/src/std_msgs/String.h
 
 /opt/ros/noetic/include/ros/advertise_options.h
 ros/forwards.h

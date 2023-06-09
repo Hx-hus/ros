@@ -67,14 +67,14 @@ set(test_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(test_SOURCE_PREFIX /home/hx-hus/ros/话题通信基本操作/src/test)
-  set(test_DEVEL_PREFIX /home/hx-hus/ros/话题通信基本操作/devel)
+  set(test_SOURCE_PREFIX /home/hx-hus/ros/ros/话题通信基本操作/src/test)
+  set(test_DEVEL_PREFIX /home/hx-hus/ros/ros/话题通信基本操作/devel)
   set(test_INSTALL_PREFIX "")
   set(test_PREFIX ${test_DEVEL_PREFIX})
 else()
   set(test_SOURCE_PREFIX "")
   set(test_DEVEL_PREFIX "")
-  set(test_INSTALL_PREFIX /home/hx-hus/ros/话题通信基本操作/install)
+  set(test_INSTALL_PREFIX /home/hx-hus/ros/ros/话题通信基本操作/install)
   set(test_PREFIX ${test_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(test_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "include " STREQUAL " ")
   set(test_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/hx-hus/ros/话题通信基本操作/install/lib;/opt/ros/noetic/lib)
+    foreach(path /home/hx-hus/ros/ros/话题通信基本操作/install/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(test_EXPORTED_TARGETS "")
+set(test_EXPORTED_TARGETS "test_generate_messages_cpp;test_generate_messages_eus;test_generate_messages_lisp;test_generate_messages_nodejs;test_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${test_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -185,7 +185,7 @@ foreach(t ${test_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "")
+set(depends "roscpp;rospy;std_msgs;message_runtime")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
@@ -214,7 +214,7 @@ foreach(depend ${depends})
   _list_append_deduplicate(test_EXPORTED_TARGETS ${${test_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "test-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${test_DIR}/${extra})

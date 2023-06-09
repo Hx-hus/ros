@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/hx-hus/ros/话题通信基本操作/src
+CMAKE_SOURCE_DIR = /home/hx-hus/ros/ros/话题通信基本操作/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/hx-hus/ros/话题通信基本操作/build
+CMAKE_BINARY_DIR = /home/hx-hus/ros/ros/话题通信基本操作/build
 
 # Utility rule file for std_msgs_generate_messages_cpp.
 
@@ -63,10 +63,10 @@ test/CMakeFiles/std_msgs_generate_messages_cpp.dir/build: std_msgs_generate_mess
 .PHONY : test/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
 
 test/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean:
-	cd /home/hx-hus/ros/话题通信基本操作/build/test && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_cpp.dir/cmake_clean.cmake
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build/test && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_cpp.dir/cmake_clean.cmake
 .PHONY : test/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 
 test/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hx-hus/ros/话题通信基本操作/src /home/hx-hus/ros/话题通信基本操作/src/test /home/hx-hus/ros/话题通信基本操作/build /home/hx-hus/ros/话题通信基本操作/build/test /home/hx-hus/ros/话题通信基本操作/build/test/CMakeFiles/std_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hx-hus/ros/ros/话题通信基本操作/src /home/hx-hus/ros/ros/话题通信基本操作/src/test /home/hx-hus/ros/ros/话题通信基本操作/build /home/hx-hus/ros/ros/话题通信基本操作/build/test /home/hx-hus/ros/ros/话题通信基本操作/build/test/CMakeFiles/std_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : test/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend
 

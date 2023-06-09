@@ -1,0 +1,2 @@
+test
+-DCATKIN_DEVEL_PREFIX=/home/hx-hus/ros/ros/话题通信自定义msg/devel -DCMAKE_INSTALL_PREFIX=/home/hx-hus/ros/ros/话题通信自定义msg/install -G Unix Makefiles

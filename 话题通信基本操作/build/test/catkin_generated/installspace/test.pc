@@ -1,8 +1,8 @@
-prefix=/home/hx-hus/ros/话题通信基本操作/install
+prefix=/home/hx-hus/ros/ros/话题通信基本操作/install
 
 Name: test
 Description: Description of test
 Version: 0.0.0
-Cflags: 
+Cflags: -I${prefix}/include
 Libs: -L${prefix}/lib 
-Requires: 
+Requires: roscpp rospy std_msgs message_runtime

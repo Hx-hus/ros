@@ -7,7 +7,7 @@
 //2.初始化ros节点
 //3.创建节点句柄
 //4.创建订阅者对象
-//5.处理订阅到的数据
+//5.处理订阅到的数据 
 //6.spin()函数
 
 void dispose(const std_msgs::String::ConstPtr &msg)//参数是订阅到的消息

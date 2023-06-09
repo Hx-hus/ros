@@ -48,24 +48,35 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/hx-hus/ros/话题通信基本操作/src
+CMAKE_SOURCE_DIR = /home/hx-hus/ros/ros/话题通信基本操作/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/hx-hus/ros/话题通信基本操作/build
+CMAKE_BINARY_DIR = /home/hx-hus/ros/ros/话题通信基本操作/build
 
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
 
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
-.PHONY : rebuild_cache/fast
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -89,6 +100,17 @@ test/fast: test
 
 .PHONY : test/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -100,28 +122,6 @@ install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
@@ -137,14 +137,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/hx-hus/ros/话题通信基本操作/build/CMakeFiles /home/hx-hus/ros/话题通信基本操作/build/test/CMakeFiles/progress.marks
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/hx-hus/ros/话题通信基本操作/build/CMakeFiles 0
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/hx-hus/ros/ros/话题通信基本操作/build/CMakeFiles /home/hx-hus/ros/ros/话题通信基本操作/build/test/CMakeFiles/progress.marks
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/hx-hus/ros/ros/话题通信基本操作/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/clean
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,262 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
-test/CMakeFiles/sub.dir/rule:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/sub.dir/rule
-.PHONY : test/CMakeFiles/sub.dir/rule
-
-# Convenience name for target.
-sub: test/CMakeFiles/sub.dir/rule
-
-.PHONY : sub
-
-# fast build rule for target.
-sub/fast:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/sub.dir/build.make test/CMakeFiles/sub.dir/build
-.PHONY : sub/fast
-
-# Convenience name for target.
-test/CMakeFiles/pub.dir/rule:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/pub.dir/rule
-.PHONY : test/CMakeFiles/pub.dir/rule
-
-# Convenience name for target.
-pub: test/CMakeFiles/pub.dir/rule
-
-.PHONY : pub
-
-# fast build rule for target.
-pub/fast:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/pub.dir/build.make test/CMakeFiles/pub.dir/build
-.PHONY : pub/fast
-
-# Convenience name for target.
-test/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-.PHONY : test/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_py: test/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-.PHONY : std_msgs_generate_messages_py
-
-# fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/std_msgs_generate_messages_py.dir/build.make test/CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-test/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-.PHONY : test/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_nodejs: test/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : std_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-std_msgs_generate_messages_nodejs/fast:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make test/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
-.PHONY : std_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-test/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-.PHONY : test/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_cpp: test/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-.PHONY : roscpp_generate_messages_cpp
-
-# fast build rule for target.
-roscpp_generate_messages_cpp/fast:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make test/CMakeFiles/roscpp_generate_messages_cpp.dir/build
-.PHONY : roscpp_generate_messages_cpp/fast
-
-# Convenience name for target.
-test/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-.PHONY : test/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_eus: test/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-
-.PHONY : roscpp_generate_messages_eus
-
-# fast build rule for target.
-roscpp_generate_messages_eus/fast:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/roscpp_generate_messages_eus.dir/build.make test/CMakeFiles/roscpp_generate_messages_eus.dir/build
-.PHONY : roscpp_generate_messages_eus/fast
-
-# Convenience name for target.
-test/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-.PHONY : test/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_nodejs: test/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_nodejs/fast:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make test/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-test/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-.PHONY : test/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_lisp: test/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : std_msgs_generate_messages_lisp
-
-# fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make test/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-test/CMakeFiles/roscpp_generate_messages_py.dir/rule:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/roscpp_generate_messages_py.dir/rule
-.PHONY : test/CMakeFiles/roscpp_generate_messages_py.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_py: test/CMakeFiles/roscpp_generate_messages_py.dir/rule
-
-.PHONY : roscpp_generate_messages_py
-
-# fast build rule for target.
-roscpp_generate_messages_py/fast:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/roscpp_generate_messages_py.dir/build.make test/CMakeFiles/roscpp_generate_messages_py.dir/build
-.PHONY : roscpp_generate_messages_py/fast
-
-# Convenience name for target.
-test/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-.PHONY : test/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_eus: test/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-.PHONY : std_msgs_generate_messages_eus
-
-# fast build rule for target.
-std_msgs_generate_messages_eus/fast:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make test/CMakeFiles/std_msgs_generate_messages_eus.dir/build
-.PHONY : std_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-test/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-.PHONY : test/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_nodejs: test/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-
-.PHONY : roscpp_generate_messages_nodejs
-
-# fast build rule for target.
-roscpp_generate_messages_nodejs/fast:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make test/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
-.PHONY : roscpp_generate_messages_nodejs/fast
-
-# Convenience name for target.
-test/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-.PHONY : test/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_cpp: test/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_cpp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_cpp/fast:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make test/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-test/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-.PHONY : test/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_cpp: test/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make test/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-test/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-.PHONY : test/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_eus: test/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_eus
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_eus/fast:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make test/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
-.PHONY : rosgraph_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-test/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-.PHONY : test/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_lisp: test/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_lisp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_lisp/fast:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make test/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-test/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-.PHONY : test/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_lisp: test/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-.PHONY : roscpp_generate_messages_lisp
-
-# fast build rule for target.
-roscpp_generate_messages_lisp/fast:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make test/CMakeFiles/roscpp_generate_messages_lisp.dir/build
-.PHONY : roscpp_generate_messages_lisp/fast
-
-# Convenience name for target.
 test/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
 .PHONY : test/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -419,8 +179,428 @@ rosgraph_msgs_generate_messages_py: test/CMakeFiles/rosgraph_msgs_generate_messa
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_py/fast:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make test/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make test/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
 .PHONY : rosgraph_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+test/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+.PHONY : test/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_lisp: test/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+
+.PHONY : roscpp_generate_messages_lisp
+
+# fast build rule for target.
+roscpp_generate_messages_lisp/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make test/CMakeFiles/roscpp_generate_messages_lisp.dir/build
+.PHONY : roscpp_generate_messages_lisp/fast
+
+# Convenience name for target.
+test/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+.PHONY : test/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_lisp: test/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_lisp
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_lisp/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make test/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+test/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+.PHONY : test/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_cpp: test/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : std_msgs_generate_messages_cpp
+
+# fast build rule for target.
+std_msgs_generate_messages_cpp/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make test/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+.PHONY : std_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+test/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+.PHONY : test/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_cpp: test/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_cpp
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_cpp/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make test/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+test/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+.PHONY : test/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_nodejs: test/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+
+.PHONY : roscpp_generate_messages_nodejs
+
+# fast build rule for target.
+roscpp_generate_messages_nodejs/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make test/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
+.PHONY : roscpp_generate_messages_nodejs/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_geneus.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_geneus.dir/rule
+.PHONY : test/CMakeFiles/test_geneus.dir/rule
+
+# Convenience name for target.
+test_geneus: test/CMakeFiles/test_geneus.dir/rule
+
+.PHONY : test_geneus
+
+# fast build rule for target.
+test_geneus/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/test_geneus.dir/build.make test/CMakeFiles/test_geneus.dir/build
+.PHONY : test_geneus/fast
+
+# Convenience name for target.
+test/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
+.PHONY : test/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_eus: test/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
+
+.PHONY : std_msgs_generate_messages_eus
+
+# fast build rule for target.
+std_msgs_generate_messages_eus/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make test/CMakeFiles/std_msgs_generate_messages_eus.dir/build
+.PHONY : std_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+test/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+.PHONY : test/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_lisp: test/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : std_msgs_generate_messages_lisp
+
+# fast build rule for target.
+std_msgs_generate_messages_lisp/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make test/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+.PHONY : std_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_generate_messages_eus.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_generate_messages_eus.dir/rule
+.PHONY : test/CMakeFiles/test_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+test_generate_messages_eus: test/CMakeFiles/test_generate_messages_eus.dir/rule
+
+.PHONY : test_generate_messages_eus
+
+# fast build rule for target.
+test_generate_messages_eus/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/test_generate_messages_eus.dir/build.make test/CMakeFiles/test_generate_messages_eus.dir/build
+.PHONY : test_generate_messages_eus/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_generate_messages.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_generate_messages.dir/rule
+.PHONY : test/CMakeFiles/test_generate_messages.dir/rule
+
+# Convenience name for target.
+test_generate_messages: test/CMakeFiles/test_generate_messages.dir/rule
+
+.PHONY : test_generate_messages
+
+# fast build rule for target.
+test_generate_messages/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/test_generate_messages.dir/build.make test/CMakeFiles/test_generate_messages.dir/build
+.PHONY : test_generate_messages/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_generate_messages_py.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_generate_messages_py.dir/rule
+.PHONY : test/CMakeFiles/test_generate_messages_py.dir/rule
+
+# Convenience name for target.
+test_generate_messages_py: test/CMakeFiles/test_generate_messages_py.dir/rule
+
+.PHONY : test_generate_messages_py
+
+# fast build rule for target.
+test_generate_messages_py/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/test_generate_messages_py.dir/build.make test/CMakeFiles/test_generate_messages_py.dir/build
+.PHONY : test_generate_messages_py/fast
+
+# Convenience name for target.
+test/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+.PHONY : test/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_nodejs: test/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_nodejs/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make test/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
+.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+test/CMakeFiles/_test_generate_messages_check_deps_person.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/_test_generate_messages_check_deps_person.dir/rule
+.PHONY : test/CMakeFiles/_test_generate_messages_check_deps_person.dir/rule
+
+# Convenience name for target.
+_test_generate_messages_check_deps_person: test/CMakeFiles/_test_generate_messages_check_deps_person.dir/rule
+
+.PHONY : _test_generate_messages_check_deps_person
+
+# fast build rule for target.
+_test_generate_messages_check_deps_person/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/_test_generate_messages_check_deps_person.dir/build.make test/CMakeFiles/_test_generate_messages_check_deps_person.dir/build
+.PHONY : _test_generate_messages_check_deps_person/fast
+
+# Convenience name for target.
+test/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+.PHONY : test/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_eus: test/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+
+.PHONY : roscpp_generate_messages_eus
+
+# fast build rule for target.
+roscpp_generate_messages_eus/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/roscpp_generate_messages_eus.dir/build.make test/CMakeFiles/roscpp_generate_messages_eus.dir/build
+.PHONY : roscpp_generate_messages_eus/fast
+
+# Convenience name for target.
+test/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+.PHONY : test/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_cpp: test/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+
+.PHONY : roscpp_generate_messages_cpp
+
+# fast build rule for target.
+roscpp_generate_messages_cpp/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make test/CMakeFiles/roscpp_generate_messages_cpp.dir/build
+.PHONY : roscpp_generate_messages_cpp/fast
+
+# Convenience name for target.
+test/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+.PHONY : test/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_nodejs: test/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : std_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+std_msgs_generate_messages_nodejs/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make test/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
+.PHONY : std_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+test/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+.PHONY : test/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_py: test/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+
+.PHONY : std_msgs_generate_messages_py
+
+# fast build rule for target.
+std_msgs_generate_messages_py/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/std_msgs_generate_messages_py.dir/build.make test/CMakeFiles/std_msgs_generate_messages_py.dir/build
+.PHONY : std_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+test/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+.PHONY : test/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_eus: test/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_eus
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_eus/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make test/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
+.PHONY : rosgraph_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_genlisp.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_genlisp.dir/rule
+.PHONY : test/CMakeFiles/test_genlisp.dir/rule
+
+# Convenience name for target.
+test_genlisp: test/CMakeFiles/test_genlisp.dir/rule
+
+.PHONY : test_genlisp
+
+# fast build rule for target.
+test_genlisp/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/test_genlisp.dir/build.make test/CMakeFiles/test_genlisp.dir/build
+.PHONY : test_genlisp/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_genpy.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_genpy.dir/rule
+.PHONY : test/CMakeFiles/test_genpy.dir/rule
+
+# Convenience name for target.
+test_genpy: test/CMakeFiles/test_genpy.dir/rule
+
+.PHONY : test_genpy
+
+# fast build rule for target.
+test_genpy/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/test_genpy.dir/build.make test/CMakeFiles/test_genpy.dir/build
+.PHONY : test_genpy/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_generate_messages_cpp.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_generate_messages_cpp.dir/rule
+.PHONY : test/CMakeFiles/test_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+test_generate_messages_cpp: test/CMakeFiles/test_generate_messages_cpp.dir/rule
+
+.PHONY : test_generate_messages_cpp
+
+# fast build rule for target.
+test_generate_messages_cpp/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/test_generate_messages_cpp.dir/build.make test/CMakeFiles/test_generate_messages_cpp.dir/build
+.PHONY : test_generate_messages_cpp/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_gencpp.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_gencpp.dir/rule
+.PHONY : test/CMakeFiles/test_gencpp.dir/rule
+
+# Convenience name for target.
+test_gencpp: test/CMakeFiles/test_gencpp.dir/rule
+
+.PHONY : test_gencpp
+
+# fast build rule for target.
+test_gencpp/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/test_gencpp.dir/build.make test/CMakeFiles/test_gencpp.dir/build
+.PHONY : test_gencpp/fast
+
+# Convenience name for target.
+test/CMakeFiles/roscpp_generate_messages_py.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/roscpp_generate_messages_py.dir/rule
+.PHONY : test/CMakeFiles/roscpp_generate_messages_py.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_py: test/CMakeFiles/roscpp_generate_messages_py.dir/rule
+
+.PHONY : roscpp_generate_messages_py
+
+# fast build rule for target.
+roscpp_generate_messages_py/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/roscpp_generate_messages_py.dir/build.make test/CMakeFiles/roscpp_generate_messages_py.dir/build
+.PHONY : roscpp_generate_messages_py/fast
+
+# Convenience name for target.
+test/CMakeFiles/pub.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/pub.dir/rule
+.PHONY : test/CMakeFiles/pub.dir/rule
+
+# Convenience name for target.
+pub: test/CMakeFiles/pub.dir/rule
+
+.PHONY : pub
+
+# fast build rule for target.
+pub/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/pub.dir/build.make test/CMakeFiles/pub.dir/build
+.PHONY : pub/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_generate_messages_lisp.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_generate_messages_lisp.dir/rule
+.PHONY : test/CMakeFiles/test_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+test_generate_messages_lisp: test/CMakeFiles/test_generate_messages_lisp.dir/rule
+
+.PHONY : test_generate_messages_lisp
+
+# fast build rule for target.
+test_generate_messages_lisp/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/test_generate_messages_lisp.dir/build.make test/CMakeFiles/test_generate_messages_lisp.dir/build
+.PHONY : test_generate_messages_lisp/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_generate_messages_nodejs.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_generate_messages_nodejs.dir/rule
+.PHONY : test/CMakeFiles/test_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+test_generate_messages_nodejs: test/CMakeFiles/test_generate_messages_nodejs.dir/rule
+
+.PHONY : test_generate_messages_nodejs
+
+# fast build rule for target.
+test_generate_messages_nodejs/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/test_generate_messages_nodejs.dir/build.make test/CMakeFiles/test_generate_messages_nodejs.dir/build
+.PHONY : test_generate_messages_nodejs/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_gennodejs.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_gennodejs.dir/rule
+.PHONY : test/CMakeFiles/test_gennodejs.dir/rule
+
+# Convenience name for target.
+test_gennodejs: test/CMakeFiles/test_gennodejs.dir/rule
+
+.PHONY : test_gennodejs
+
+# fast build rule for target.
+test_gennodejs/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/test_gennodejs.dir/build.make test/CMakeFiles/test_gennodejs.dir/build
+.PHONY : test_gennodejs/fast
+
+# Convenience name for target.
+test/CMakeFiles/sub.dir/rule:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/sub.dir/rule
+.PHONY : test/CMakeFiles/sub.dir/rule
+
+# Convenience name for target.
+sub: test/CMakeFiles/sub.dir/rule
+
+.PHONY : sub
+
+# fast build rule for target.
+sub/fast:
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/sub.dir/build.make test/CMakeFiles/sub.dir/build
+.PHONY : sub/fast
 
 src/pub.o: src/pub.cpp.o
 
@@ -428,7 +608,7 @@ src/pub.o: src/pub.cpp.o
 
 # target to build an object file
 src/pub.cpp.o:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/pub.dir/build.make test/CMakeFiles/pub.dir/src/pub.cpp.o
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/pub.dir/build.make test/CMakeFiles/pub.dir/src/pub.cpp.o
 .PHONY : src/pub.cpp.o
 
 src/pub.i: src/pub.cpp.i
@@ -437,7 +617,7 @@ src/pub.i: src/pub.cpp.i
 
 # target to preprocess a source file
 src/pub.cpp.i:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/pub.dir/build.make test/CMakeFiles/pub.dir/src/pub.cpp.i
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/pub.dir/build.make test/CMakeFiles/pub.dir/src/pub.cpp.i
 .PHONY : src/pub.cpp.i
 
 src/pub.s: src/pub.cpp.s
@@ -446,7 +626,7 @@ src/pub.s: src/pub.cpp.s
 
 # target to generate assembly for a file
 src/pub.cpp.s:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/pub.dir/build.make test/CMakeFiles/pub.dir/src/pub.cpp.s
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/pub.dir/build.make test/CMakeFiles/pub.dir/src/pub.cpp.s
 .PHONY : src/pub.cpp.s
 
 src/sub.o: src/sub.cpp.o
@@ -455,7 +635,7 @@ src/sub.o: src/sub.cpp.o
 
 # target to build an object file
 src/sub.cpp.o:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/sub.dir/build.make test/CMakeFiles/sub.dir/src/sub.cpp.o
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/sub.dir/build.make test/CMakeFiles/sub.dir/src/sub.cpp.o
 .PHONY : src/sub.cpp.o
 
 src/sub.i: src/sub.cpp.i
@@ -464,7 +644,7 @@ src/sub.i: src/sub.cpp.i
 
 # target to preprocess a source file
 src/sub.cpp.i:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/sub.dir/build.make test/CMakeFiles/sub.dir/src/sub.cpp.i
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/sub.dir/build.make test/CMakeFiles/sub.dir/src/sub.cpp.i
 .PHONY : src/sub.cpp.i
 
 src/sub.s: src/sub.cpp.s
@@ -473,7 +653,7 @@ src/sub.s: src/sub.cpp.s
 
 # target to generate assembly for a file
 src/sub.cpp.s:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/sub.dir/build.make test/CMakeFiles/sub.dir/src/sub.cpp.s
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(MAKE) -f test/CMakeFiles/sub.dir/build.make test/CMakeFiles/sub.dir/src/sub.cpp.s
 .PHONY : src/sub.cpp.s
 
 # Help Target
@@ -482,30 +662,42 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... test"
-	@echo "... sub"
-	@echo "... install/local"
-	@echo "... pub"
-	@echo "... std_msgs_generate_messages_py"
-	@echo "... std_msgs_generate_messages_nodejs"
-	@echo "... roscpp_generate_messages_cpp"
-	@echo "... roscpp_generate_messages_eus"
-	@echo "... rosgraph_msgs_generate_messages_nodejs"
-	@echo "... list_install_components"
-	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... roscpp_generate_messages_py"
 	@echo "... install"
-	@echo "... std_msgs_generate_messages_eus"
-	@echo "... roscpp_generate_messages_nodejs"
-	@echo "... rosgraph_msgs_generate_messages_cpp"
-	@echo "... install/strip"
-	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... rosgraph_msgs_generate_messages_eus"
-	@echo "... rosgraph_msgs_generate_messages_lisp"
-	@echo "... roscpp_generate_messages_lisp"
+	@echo "... list_install_components"
+	@echo "... edit_cache"
 	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... roscpp_generate_messages_lisp"
+	@echo "... rosgraph_msgs_generate_messages_lisp"
+	@echo "... std_msgs_generate_messages_cpp"
+	@echo "... test"
+	@echo "... rosgraph_msgs_generate_messages_cpp"
+	@echo "... roscpp_generate_messages_nodejs"
+	@echo "... test_geneus"
+	@echo "... std_msgs_generate_messages_eus"
+	@echo "... std_msgs_generate_messages_lisp"
+	@echo "... test_generate_messages_eus"
+	@echo "... test_generate_messages"
+	@echo "... test_generate_messages_py"
+	@echo "... rosgraph_msgs_generate_messages_nodejs"
+	@echo "... _test_generate_messages_check_deps_person"
+	@echo "... rebuild_cache"
+	@echo "... roscpp_generate_messages_eus"
+	@echo "... roscpp_generate_messages_cpp"
+	@echo "... std_msgs_generate_messages_nodejs"
+	@echo "... std_msgs_generate_messages_py"
+	@echo "... install/local"
+	@echo "... rosgraph_msgs_generate_messages_eus"
+	@echo "... test_genlisp"
+	@echo "... test_genpy"
+	@echo "... test_generate_messages_cpp"
+	@echo "... test_gencpp"
+	@echo "... roscpp_generate_messages_py"
+	@echo "... pub"
+	@echo "... test_generate_messages_lisp"
+	@echo "... test_generate_messages_nodejs"
+	@echo "... install/strip"
+	@echo "... test_gennodejs"
+	@echo "... sub"
 	@echo "... src/pub.o"
 	@echo "... src/pub.i"
 	@echo "... src/pub.s"
@@ -523,6 +715,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/hx-hus/ros/话题通信基本操作/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/hx-hus/ros/ros/话题通信基本操作/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
