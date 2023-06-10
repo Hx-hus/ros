@@ -1,0 +1,15 @@
+# Hashes of file build rules.
+0d94268fdde9a6b3e5ec1636e169a4ed /home/hx-hus/ros/ros/服务通信/devel/include/test/addints.h
+15e66afe12f15adcd430c17a37589d67 /home/hx-hus/ros/ros/服务通信/devel/lib/python3/dist-packages/test/srv/__init__.py
+ba2cfc238933dbcaa0916ac8052bba44 /home/hx-hus/ros/ros/服务通信/devel/lib/python3/dist-packages/test/srv/_addints.py
+cc81a053f48b85a9fb1dc950a5609612 /home/hx-hus/ros/ros/服务通信/devel/share/common-lisp/ros/test/srv/addints.lisp
+6c6756138fa6f65ce4312b6951a03aa3 /home/hx-hus/ros/ros/服务通信/devel/share/gennodejs/ros/test/srv/addints.js
+a9ea65ee8ccdfc274bcd55b7ff28ca29 /home/hx-hus/ros/ros/服务通信/devel/share/roseus/ros/test/manifest.l
+d87b583b858cce9fa412b84b1d342bd4 /home/hx-hus/ros/ros/服务通信/devel/share/roseus/ros/test/srv/addints.l
+d6478fc9219913aae9a06f6d9a274fce CMakeFiles/clean_test_results
+86adf3880d4f426ca18dd08757756004 test/CMakeFiles/_test_generate_messages_check_deps_addints
+3a4bcb1111d747eee319661ab497e30b test/CMakeFiles/test_generate_messages_cpp
+3a4bcb1111d747eee319661ab497e30b test/CMakeFiles/test_generate_messages_eus
+3a4bcb1111d747eee319661ab497e30b test/CMakeFiles/test_generate_messages_lisp
+3a4bcb1111d747eee319661ab497e30b test/CMakeFiles/test_generate_messages_nodejs
+3a4bcb1111d747eee319661ab497e30b test/CMakeFiles/test_generate_messages_py
