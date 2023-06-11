@@ -1,0 +1,10 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "cmake.sourceDirectory": "/home/hx-hus/ros/ros/ros学习内容/src/param_server",
+    "C_Cpp.errorSquiggles": "disabled"
+}

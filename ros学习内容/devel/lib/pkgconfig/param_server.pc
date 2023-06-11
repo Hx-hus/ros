@@ -1,0 +1,8 @@
+prefix=/home/hx-hus/ros/ros/ros学习内容/devel
+
+Name: param_server
+Description: Description of param_server
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
