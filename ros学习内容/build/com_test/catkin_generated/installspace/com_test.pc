@@ -1,0 +1,8 @@
+prefix=/home/hx-hus/ros/ros/ros学习内容/install
+
+Name: com_test
+Description: Description of com_test
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

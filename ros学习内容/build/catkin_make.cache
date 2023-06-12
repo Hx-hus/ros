@@ -1,2 +1,2 @@
-param_server
+com_test:param_server
 -DCATKIN_DEVEL_PREFIX=/home/hx-hus/ros/ros/ros学习内容/devel -DCMAKE_INSTALL_PREFIX=/home/hx-hus/ros/ros/ros学习内容/install -G Unix Makefiles
