@@ -68,17 +68,6 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -90,6 +79,17 @@ install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -168,6 +168,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+com_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
+	cd /home/hx-hus/ros/ros/ros学习内容/build && $(MAKE) -f CMakeFiles/Makefile2 com_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+.PHONY : com_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_eus: com_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_eus
+
+# fast build rule for target.
+geometry_msgs_generate_messages_eus/fast:
+	cd /home/hx-hus/ros/ros/ros学习内容/build && $(MAKE) -f com_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make com_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
+.PHONY : geometry_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
 com_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
 	cd /home/hx-hus/ros/ros/ros学习内容/build && $(MAKE) -f CMakeFiles/Makefile2 com_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
 .PHONY : com_test/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
@@ -243,19 +258,19 @@ test02_sub_pose/fast:
 .PHONY : test02_sub_pose/fast
 
 # Convenience name for target.
-com_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
-	cd /home/hx-hus/ros/ros/ros学习内容/build && $(MAKE) -f CMakeFiles/Makefile2 com_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-.PHONY : com_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+com_test/CMakeFiles/test03_server_client.dir/rule:
+	cd /home/hx-hus/ros/ros/ros学习内容/build && $(MAKE) -f CMakeFiles/Makefile2 com_test/CMakeFiles/test03_server_client.dir/rule
+.PHONY : com_test/CMakeFiles/test03_server_client.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_eus: com_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+test03_server_client: com_test/CMakeFiles/test03_server_client.dir/rule
 
-.PHONY : geometry_msgs_generate_messages_eus
+.PHONY : test03_server_client
 
 # fast build rule for target.
-geometry_msgs_generate_messages_eus/fast:
-	cd /home/hx-hus/ros/ros/ros学习内容/build && $(MAKE) -f com_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make com_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
-.PHONY : geometry_msgs_generate_messages_eus/fast
+test03_server_client/fast:
+	cd /home/hx-hus/ros/ros/ros学习内容/build && $(MAKE) -f com_test/CMakeFiles/test03_server_client.dir/build.make com_test/CMakeFiles/test03_server_client.dir/build
+.PHONY : test03_server_client/fast
 
 # Convenience name for target.
 com_test/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
@@ -326,6 +341,33 @@ src/test02_sub_pose.cpp.s:
 	cd /home/hx-hus/ros/ros/ros学习内容/build && $(MAKE) -f com_test/CMakeFiles/test02_sub_pose.dir/build.make com_test/CMakeFiles/test02_sub_pose.dir/src/test02_sub_pose.cpp.s
 .PHONY : src/test02_sub_pose.cpp.s
 
+src/test03_server_client.o: src/test03_server_client.cpp.o
+
+.PHONY : src/test03_server_client.o
+
+# target to build an object file
+src/test03_server_client.cpp.o:
+	cd /home/hx-hus/ros/ros/ros学习内容/build && $(MAKE) -f com_test/CMakeFiles/test03_server_client.dir/build.make com_test/CMakeFiles/test03_server_client.dir/src/test03_server_client.cpp.o
+.PHONY : src/test03_server_client.cpp.o
+
+src/test03_server_client.i: src/test03_server_client.cpp.i
+
+.PHONY : src/test03_server_client.i
+
+# target to preprocess a source file
+src/test03_server_client.cpp.i:
+	cd /home/hx-hus/ros/ros/ros学习内容/build && $(MAKE) -f com_test/CMakeFiles/test03_server_client.dir/build.make com_test/CMakeFiles/test03_server_client.dir/src/test03_server_client.cpp.i
+.PHONY : src/test03_server_client.cpp.i
+
+src/test03_server_client.s: src/test03_server_client.cpp.s
+
+.PHONY : src/test03_server_client.s
+
+# target to generate assembly for a file
+src/test03_server_client.cpp.s:
+	cd /home/hx-hus/ros/ros/ros学习内容/build && $(MAKE) -f com_test/CMakeFiles/test03_server_client.dir/build.make com_test/CMakeFiles/test03_server_client.dir/src/test03_server_client.cpp.s
+.PHONY : src/test03_server_client.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -333,14 +375,15 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
+	@echo "... install/local"
+	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_nodejs"
 	@echo "... test01_pub_twist"
 	@echo "... test"
 	@echo "... test02_sub_pose"
-	@echo "... geometry_msgs_generate_messages_eus"
-	@echo "... install/local"
+	@echo "... test03_server_client"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... list_install_components"
@@ -352,6 +395,9 @@ help:
 	@echo "... src/test02_sub_pose.o"
 	@echo "... src/test02_sub_pose.i"
 	@echo "... src/test02_sub_pose.s"
+	@echo "... src/test03_server_client.o"
+	@echo "... src/test03_server_client.i"
+	@echo "... src/test03_server_client.s"
 .PHONY : help
 
 

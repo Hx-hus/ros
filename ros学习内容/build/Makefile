@@ -519,6 +519,19 @@ rosgraph_msgs_generate_messages_py/fast:
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named geometry_msgs_generate_messages_eus
+
+# Build rule for target.
+geometry_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_eus
+.PHONY : geometry_msgs_generate_messages_eus
+
+# fast build rule for target.
+geometry_msgs_generate_messages_eus/fast:
+	$(MAKE) -f com_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make com_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
+.PHONY : geometry_msgs_generate_messages_eus/fast
+
+#=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_py
 
 # Build rule for target.
@@ -584,17 +597,17 @@ test02_sub_pose/fast:
 .PHONY : test02_sub_pose/fast
 
 #=============================================================================
-# Target rules for targets named geometry_msgs_generate_messages_eus
+# Target rules for targets named test03_server_client
 
 # Build rule for target.
-geometry_msgs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_eus
-.PHONY : geometry_msgs_generate_messages_eus
+test03_server_client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test03_server_client
+.PHONY : test03_server_client
 
 # fast build rule for target.
-geometry_msgs_generate_messages_eus/fast:
-	$(MAKE) -f com_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make com_test/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
-.PHONY : geometry_msgs_generate_messages_eus/fast
+test03_server_client/fast:
+	$(MAKE) -f com_test/CMakeFiles/test03_server_client.dir/build.make com_test/CMakeFiles/test03_server_client.dir/build
+.PHONY : test03_server_client/fast
 
 #=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_lisp
@@ -649,12 +662,13 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_nodejs"
 	@echo "... test01_pub_twist"
 	@echo "... test02_sub_pose"
-	@echo "... geometry_msgs_generate_messages_eus"
+	@echo "... test03_server_client"
 	@echo "... geometry_msgs_generate_messages_lisp"
 .PHONY : help
 
