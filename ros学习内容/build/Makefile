@@ -622,6 +622,19 @@ geometry_msgs_generate_messages_lisp/fast:
 	$(MAKE) -f com_test/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make com_test/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
 .PHONY : geometry_msgs_generate_messages_lisp/fast
 
+#=============================================================================
+# Target rules for targets named test04_param
+
+# Build rule for target.
+test04_param: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test04_param
+.PHONY : test04_param
+
+# fast build rule for target.
+test04_param/fast:
+	$(MAKE) -f com_test/CMakeFiles/test04_param.dir/build.make com_test/CMakeFiles/test04_param.dir/build
+.PHONY : test04_param/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -670,6 +683,7 @@ help:
 	@echo "... test02_sub_pose"
 	@echo "... test03_server_client"
 	@echo "... geometry_msgs_generate_messages_lisp"
+	@echo "... test04_param"
 .PHONY : help
 
 

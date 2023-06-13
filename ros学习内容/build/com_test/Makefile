@@ -287,6 +287,21 @@ geometry_msgs_generate_messages_lisp/fast:
 	cd /home/hx-hus/ros/ros/ros学习内容/build && $(MAKE) -f com_test/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make com_test/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
 .PHONY : geometry_msgs_generate_messages_lisp/fast
 
+# Convenience name for target.
+com_test/CMakeFiles/test04_param.dir/rule:
+	cd /home/hx-hus/ros/ros/ros学习内容/build && $(MAKE) -f CMakeFiles/Makefile2 com_test/CMakeFiles/test04_param.dir/rule
+.PHONY : com_test/CMakeFiles/test04_param.dir/rule
+
+# Convenience name for target.
+test04_param: com_test/CMakeFiles/test04_param.dir/rule
+
+.PHONY : test04_param
+
+# fast build rule for target.
+test04_param/fast:
+	cd /home/hx-hus/ros/ros/ros学习内容/build && $(MAKE) -f com_test/CMakeFiles/test04_param.dir/build.make com_test/CMakeFiles/test04_param.dir/build
+.PHONY : test04_param/fast
+
 src/test01_pub_twist.o: src/test01_pub_twist.cpp.o
 
 .PHONY : src/test01_pub_twist.o
@@ -368,6 +383,33 @@ src/test03_server_client.cpp.s:
 	cd /home/hx-hus/ros/ros/ros学习内容/build && $(MAKE) -f com_test/CMakeFiles/test03_server_client.dir/build.make com_test/CMakeFiles/test03_server_client.dir/src/test03_server_client.cpp.s
 .PHONY : src/test03_server_client.cpp.s
 
+src/test04_param.o: src/test04_param.cpp.o
+
+.PHONY : src/test04_param.o
+
+# target to build an object file
+src/test04_param.cpp.o:
+	cd /home/hx-hus/ros/ros/ros学习内容/build && $(MAKE) -f com_test/CMakeFiles/test04_param.dir/build.make com_test/CMakeFiles/test04_param.dir/src/test04_param.cpp.o
+.PHONY : src/test04_param.cpp.o
+
+src/test04_param.i: src/test04_param.cpp.i
+
+.PHONY : src/test04_param.i
+
+# target to preprocess a source file
+src/test04_param.cpp.i:
+	cd /home/hx-hus/ros/ros/ros学习内容/build && $(MAKE) -f com_test/CMakeFiles/test04_param.dir/build.make com_test/CMakeFiles/test04_param.dir/src/test04_param.cpp.i
+.PHONY : src/test04_param.cpp.i
+
+src/test04_param.s: src/test04_param.cpp.s
+
+.PHONY : src/test04_param.s
+
+# target to generate assembly for a file
+src/test04_param.cpp.s:
+	cd /home/hx-hus/ros/ros/ros学习内容/build && $(MAKE) -f com_test/CMakeFiles/test04_param.dir/build.make com_test/CMakeFiles/test04_param.dir/src/test04_param.cpp.s
+.PHONY : src/test04_param.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -387,8 +429,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... list_install_components"
-	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... install"
+	@echo "... geometry_msgs_generate_messages_lisp"
+	@echo "... test04_param"
 	@echo "... src/test01_pub_twist.o"
 	@echo "... src/test01_pub_twist.i"
 	@echo "... src/test01_pub_twist.s"
@@ -398,6 +441,9 @@ help:
 	@echo "... src/test03_server_client.o"
 	@echo "... src/test03_server_client.i"
 	@echo "... src/test03_server_client.s"
+	@echo "... src/test04_param.o"
+	@echo "... src/test04_param.i"
+	@echo "... src/test04_param.s"
 .PHONY : help
 
 

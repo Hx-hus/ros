@@ -227,4 +227,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "com_test/CMakeFiles/test02_sub_pose.dir/DependInfo.cmake"
   "com_test/CMakeFiles/test03_server_client.dir/DependInfo.cmake"
   "com_test/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/DependInfo.cmake"
+  "com_test/CMakeFiles/test04_param.dir/DependInfo.cmake"
   )

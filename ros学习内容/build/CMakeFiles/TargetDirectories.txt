@@ -73,5 +73,6 @@
 /home/hx-hus/ros/ros/ros学习内容/build/com_test/CMakeFiles/edit_cache.dir
 /home/hx-hus/ros/ros/ros学习内容/build/com_test/CMakeFiles/rebuild_cache.dir
 /home/hx-hus/ros/ros/ros学习内容/build/com_test/CMakeFiles/list_install_components.dir
-/home/hx-hus/ros/ros/ros学习内容/build/com_test/CMakeFiles/geometry_msgs_generate_messages_lisp.dir
 /home/hx-hus/ros/ros/ros学习内容/build/com_test/CMakeFiles/install.dir
+/home/hx-hus/ros/ros/ros学习内容/build/com_test/CMakeFiles/geometry_msgs_generate_messages_lisp.dir
+/home/hx-hus/ros/ros/ros学习内容/build/com_test/CMakeFiles/test04_param.dir
